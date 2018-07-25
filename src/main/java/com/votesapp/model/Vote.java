@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Votes {
+public class Vote {
 
     @EmbeddedId
     private VoteId id;

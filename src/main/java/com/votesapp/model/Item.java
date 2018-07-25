@@ -3,6 +3,7 @@ package com.votesapp.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 
@@ -21,6 +22,7 @@ public class Item {
     private Long id;
 
     @Column(nullable = false)
+    @Length(min = 1, max = 255)
     private String name;
 
     @Column(nullable = false)
