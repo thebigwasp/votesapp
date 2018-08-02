@@ -14,6 +14,9 @@ public class VoteId implements Serializable {
     @Column(length = 500)
     private String user;
 
+    @Column(length = 31)
+    private String ipAddress;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id", referencedColumnName = "id")
     private Topic topic;

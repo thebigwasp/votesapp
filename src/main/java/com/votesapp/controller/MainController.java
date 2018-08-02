@@ -58,6 +58,10 @@ public class MainController {
     public ResponseEntity vote(@PathVariable String topicName,
                                @PathVariable String itemName,
                                HttpServletRequest request) throws VotesappException { // 6
-        return ResponseEntity.ok(this.itemService.vote(topicName, itemName, request.getHeader("user-agent")));
+        String ipAddress = request.getHeader("X-FORWARDED-FOR");
+        if (ipAddress == null) {
+            ipAddress = request.getRemoteAddr();
+        }
+        return ResponseEntity.ok(this.itemService.vote(topicName, itemName, request.getHeader("user-agent"), ipAddress));
     }
 }

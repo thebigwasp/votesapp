@@ -61,7 +61,7 @@ public class ItemService {
     }
 
     @Transactional
-    public ItemDto vote(String topicName, String itemName, String user) throws VotesappException {
+    public ItemDto vote(String topicName, String itemName, String user, String ipAddress) throws VotesappException {
         Vote vote = this.voteRepository.findOneByUserAndTopicName(user, topicName);
         if(vote != null){
             throw new VotesappException("Already voted", HttpStatus.FORBIDDEN);
@@ -72,6 +72,7 @@ public class ItemService {
         }
         VoteId voteId = new VoteId();
         voteId.setUser(user);
+        voteId.setIpAddress(ipAddress);
         voteId.setTopic(item.getTopic());
         vote = new Vote();
         vote.setId(voteId);
