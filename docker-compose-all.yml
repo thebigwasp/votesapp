@@ -1,0 +1,14 @@
+version: "3"
+services:
+  db:
+    image: mysql:5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: votesapp
+
+  votesapp:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
