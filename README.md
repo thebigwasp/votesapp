@@ -1,3 +1,5 @@
+Moved to gitlab https://gitlab.com/thebigwasp/votesapp
+
 Hours spent: 6.5
 
 Deploy command:
